@@ -6,7 +6,6 @@ const fields = {
   confirm: document.querySelector("#confirm"),
   terms: document.querySelector("#terms"),
 };
-const labels = { callsign: "callsign", email: "email", password: "password", confirm: "confirm", terms: "terms" };
 const checked = new Set();
 const status = document.querySelector("#submit-status");
 const submitButton = document.querySelector(".submit-button");
