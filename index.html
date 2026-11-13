@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>NEONCORE | Gamer sign-up form</title>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="brand-panel" aria-labelledby="page-title">
+        <div class="brand-topline">
+          <img src="./assets/images/logo.svg" alt="NEONCORE" class="logo" />
+          <span class="ready-count" aria-live="polite"><b id="ready-count">0/5</b> ready</span>
+        </div>
+        <div class="intro">
+          <h1 id="page-title"><span>//</span> Join the<br />nexus</h1>
+          <p>Initialize your NEONCORE identity</p>
+        </div>
+        <div class="operator-readout" aria-live="polite">
+          <div class="readout-heading"><span>Operator ID</span><span id="operator-state">Unassigned</span></div>
+          <div class="readout-rows">
+            <div><span>Callsign</span><i></i><strong id="status-callsign">Pending</strong></div>
+            <div><span>Email</span><i></i><strong id="status-email">Pending</strong></div>
+            <div><span>Password</span><i></i><strong id="status-password">Pending</strong></div>
+            <div><span>Confirm</span><i></i><strong id="status-confirm">Pending</strong></div>
+            <div><span>Terms</span><i></i><strong id="status-terms">Required</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-panel" aria-label="New operator registration">
+        <div id="form-view">
+          <div class="panel-heading"><h2>New operator</h2><span class="desktop-required">All fields required</span><span class="mobile-required">All required</span></div>
+          <form id="signup-form" novalidate>
+            <div class="field" data-field="callsign">
+              <label for="callsign">Callsign</label>
+              <input id="callsign" name="callsign" type="text" autocomplete="username" placeholder="e.g. Vortex_07" aria-describedby="callsign-hint callsign-error" />
+              <p class="hint" id="callsign-hint">3–20 characters: letters, numbers, _ or -</p>
+              <p class="error" id="callsign-error" role="alert"></p>
+            </div>
+            <div class="field" data-field="email">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-error" />
+              <p class="error" id="email-error" role="alert"></p>
+            </div>
+            <div class="field" data-field="password">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <input id="password" name="password" type="password" autocomplete="new-password" aria-describedby="password-hint password-error" />
+                <button class="toggle-password" type="button" aria-label="Show password" data-target="password"><img src="./assets/images/icon-eye.svg" alt="" /></button>
+              </div>
+              <div class="strength" aria-live="polite"><div class="segments"><i></i><i></i><i></i><i></i></div><span id="strength-label"></span></div>
+              <p class="hint" id="password-hint">At least 8 characters</p>
+              <p class="error" id="password-error" role="alert"></p>
+            </div>
+            <div class="field" data-field="confirm">
+              <label for="confirm">Confirm password</label>
+              <div class="input-wrap">
+                <input id="confirm" name="confirm" type="password" autocomplete="new-password" aria-describedby="confirm-error" />
+                <button class="toggle-password" type="button" aria-label="Show password" data-target="confirm"><img src="./assets/images/icon-eye.svg" alt="" /></button>
+              </div>
+              <p class="error" id="confirm-error" role="alert"></p>
+            </div>
+            <div class="terms-field">
+              <input id="terms" name="terms" type="checkbox" aria-describedby="terms-error" />
+              <label for="terms">I accept the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
+              <p class="error" id="terms-error" role="alert"></p>
+            </div>
+            <p class="submit-status" id="submit-status" aria-live="assertive"></p>
+            <button class="submit-button" type="submit">Initialize account</button>
+          </form>
+          <p class="login-link">Already an operator? <a href="#">Log in</a></p>
+        </div>
+        <div id="success-view" class="success-view" hidden>
+          <img src="./assets/images/icon-hex-check.svg" alt="" />
+          <p class="eyebrow">// Handshake complete</p>
+          <h2 tabindex="-1">Operator <span id="success-callsign"></span> provisioned.</h2>
+          <p>Your account is ready.</p>
+          <a class="submit-button success-link" href="#">Continue to log in</a>
+        </div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
